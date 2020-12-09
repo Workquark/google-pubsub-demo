@@ -3,17 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.ServiceProxy", "Application.ServiceProxy\Application.ServiceProxy.csproj", "{A6B7A7DC-F3E4-4EC1-932B-DA25BAF8ACA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jaafan.Proxy", "Application.ServiceProxy\Jaafan.Proxy.csproj", "{A6B7A7DC-F3E4-4EC1-932B-DA25BAF8ACA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.ServiceProxy.Testconsole", "Application.ServiceProxy.Testconsole\Application.ServiceProxy.Testconsole.csproj", "{A27AD1AB-4DBE-437A-9269-420498BAE059}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jaafan.Proxy.Testconsole", "Application.ServiceProxy.Testconsole\Jaafan.Proxy.Testconsole.csproj", "{A27AD1AB-4DBE-437A-9269-420498BAE059}"
 EndProject
 Global
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {233F7443-98CB-4882-8069-7C64181DCC37}
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
@@ -47,5 +41,11 @@ Global
 		{A27AD1AB-4DBE-437A-9269-420498BAE059}.Release|x64.Build.0 = Release|Any CPU
 		{A27AD1AB-4DBE-437A-9269-420498BAE059}.Release|x86.ActiveCfg = Release|Any CPU
 		{A27AD1AB-4DBE-437A-9269-420498BAE059}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {233F7443-98CB-4882-8069-7C64181DCC37}
 	EndGlobalSection
 EndGlobal
