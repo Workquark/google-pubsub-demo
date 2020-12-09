@@ -6,7 +6,7 @@ steps:
 # .NET Core 3.1.x
 - name: gcr.io/cloud-builders/docker
   args: [ 'build', '-t', '${_DOCKER_NAMESPACE}/application.serviceproxy:3.1-${_TAG}','-f','Application.ServiceProxy/Dockerfile',
-          '--no-cache' ]
+          '--no-cache','.' ]
   id: 'Build'
   waitFor: ['-']
 
