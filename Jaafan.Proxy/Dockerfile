@@ -5,16 +5,16 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
-COPY ["Application.ServiceProxy.csproj", ""]
-RUN dotnet restore "./Application.ServiceProxy.csproj"
+COPY ["Jaafan.Proxy.csproj", ""]
+RUN dotnet restore "./Jaafan.Proxy.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "Application.ServiceProxy.csproj" -c Release -o /app/build
+RUN dotnet build "Jaafan.Proxy.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Application.ServiceProxy.csproj" -c Release -o /app/publish
+RUN dotnet publish "Jaafan.Proxy.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Application.ServiceProxy.dll"]
+ENTRYPOINT ["dotnet", "Jaafan.Proxy.dll"]
