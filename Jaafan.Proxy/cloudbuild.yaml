@@ -21,4 +21,4 @@ steps:
 
   # Publish the images.
 images:
-  - '${_DOCKER_NAMESPACE}/jaafan:3.1-${_TAG}'
+  - '${_DOCKER_NAMESPACE}/jaafan:3.2-${_TAG}'
