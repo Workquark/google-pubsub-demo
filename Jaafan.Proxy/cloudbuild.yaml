@@ -10,6 +10,15 @@ steps:
   id: 'Build'
   waitFor: ['-']
 
+
+#- name: "gcr.io/cloud-builders/gke-deploy"
+#  args:
+#  - run
+#  - --filename=kubernetes-resource-file
+#  - --image=${_DOCKER_NAMESPACE}/jaafan:{_TAG}
+#  - --location=${_LOCATION}
+#  - --cluster=${_CLUSTER}
+
   # Publish the images.
 images:
   - '${_DOCKER_NAMESPACE}/jaafan:3.1-${_TAG}'

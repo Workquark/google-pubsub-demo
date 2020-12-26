@@ -1,0 +1,21 @@
+---
+# Source: jaafan/templates/tests/test-connection.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "jaafan-test-connection"
+  labels:
+    helm.sh/chart: jaafan-0.1.0
+    app.kubernetes.io/name: jaafan
+    app.kubernetes.io/instance: jaafan
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['jaafan:80']
+  restartPolicy: Never

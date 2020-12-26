@@ -17,4 +17,5 @@ RUN dotnet publish "Jaafan.Proxy.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+EXPOSE 9012
 ENTRYPOINT ["dotnet", "Jaafan.Proxy.dll"]

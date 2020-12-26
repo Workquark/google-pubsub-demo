@@ -1,0 +1,47 @@
+---
+# Source: jaafan/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jaafan
+  labels:
+    helm.sh/chart: jaafan-0.1.0
+    app.kubernetes.io/name: jaafan
+    app.kubernetes.io/instance: jaafan
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: jaafan
+      app.kubernetes.io/instance: jaafan
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: jaafan
+        app.kubernetes.io/instance: jaafan
+    spec:
+      serviceAccountName: jaafan
+      securityContext:
+        {}
+      containers:
+        - name: jaafan
+          securityContext:
+            {}
+          image: "nginx:1.0.0"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {}

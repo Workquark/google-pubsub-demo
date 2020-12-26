@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: asia.gcr.io/amastasis/jaafan
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "3.1-latest"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -38,7 +38,8 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 9012
+  targetPort: 9012
 
 ingress:
   enabled: false
