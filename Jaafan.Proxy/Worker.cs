@@ -1,3 +1,4 @@
+using Jaafan.Proxy;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
@@ -15,9 +16,11 @@ namespace Application.ServiceProxy
     {
         private readonly ILogger<Worker> _logger;
         private readonly UdpClient receivingUdpClient = new UdpClient(9012);
+        private readonly IPubSub pubsub;
         public Worker(ILogger<Worker> logger)
         {
             _logger = logger;
+            pubsub = new PubSub();
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -36,12 +39,11 @@ namespace Application.ServiceProxy
 
                     string returnData = Encoding.ASCII.GetString(receiveBytes);
 
-                    Console.WriteLine("This is the message you received " +
-                                              returnData.ToString());
-                    Console.WriteLine("This message was sent from " +
-                                                RemoteIpEndPoint.Address.ToString() +
-                                                " on their port number " +
-                                                RemoteIpEndPoint.Port.ToString());
+                    Console.WriteLine($"This is the message you received {returnData.ToString()}");
+                    Console.WriteLine($"This message was sent from { RemoteIpEndPoint.Address.ToString() }  on their port number { RemoteIpEndPoint.Port.ToString() }");
+
+                    await pubsub.PublishMessageWithCustomAttributesAsync("Amastasis", "my-iot-topic", returnData);
+
                 }
                 catch (Exception e)
                 {
