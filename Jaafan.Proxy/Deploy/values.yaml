@@ -8,7 +8,7 @@ image:
   repository: asia.gcr.io/amastasis/jaafan
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "3.2-latest"
+  tag: "3.3-latest"
 
 imagePullSecrets: []
 nameOverride: ""

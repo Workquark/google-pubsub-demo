@@ -5,7 +5,7 @@ steps:
 # Build the generator for testing later.
 # .NET Core 3.1.x
 - name: gcr.io/cloud-builders/docker
-  args: [ 'build', '-t', '${_DOCKER_NAMESPACE}/jaafan:3.2-${_TAG}','-f','Jaafan.Proxy/Dockerfile',
+  args: [ 'build', '-t', '${_DOCKER_NAMESPACE}/jaafan:3.3-${_TAG}','-f','Jaafan.Proxy/Dockerfile',
           '--no-cache','Jaafan.Proxy/' ]
   id: 'Build'
   waitFor: ['-']
@@ -21,4 +21,4 @@ steps:
 
   # Publish the images.
 images:
-  - '${_DOCKER_NAMESPACE}/jaafan:3.2-${_TAG}'
+  - '${_DOCKER_NAMESPACE}/jaafan:3.3-${_TAG}'

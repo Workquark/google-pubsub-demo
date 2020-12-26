@@ -15,6 +15,7 @@ FROM build AS publish
 RUN dotnet publish "Jaafan.Proxy.csproj" -c Release -o /app/publish
 
 FROM base AS final
+RUN apt update && apt install -y libc-dev 
 WORKDIR /app
 COPY --from=publish /app/publish .
 EXPOSE 9012
